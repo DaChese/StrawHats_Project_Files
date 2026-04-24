@@ -1,0 +1,40 @@
+# Build directories
+build/
+cmake-build-*/
+
+# Compiled binaries
+*.exe
+*.out
+*.app
+*.o
+*.obj
+
+# IDE and editor files
+.kiro/
+.vscode/
+.vs/
+.idea/
+*.swp
+*.swo
+*~
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+*.cmake
+
+# Visual Studio
+*.vcxproj
+*.vcxproj.filters
+*.sln
+*.suo
+*.user
+
+# Output files (generated reports)
+data/output/*
+!data/output/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
