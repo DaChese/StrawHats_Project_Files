@@ -305,7 +305,7 @@ data/
         eft_output.txt
 tests/
   black_box_test_plan.md    <- 24 original test cases with locked expected output strings
-  run_tests.py              <- automated runner (43 cases total)
+  run_tests.py              <- automated runner (41 cases total)
   executed_test_plan.md     <- auto-generated after running run_tests.py
 ```
 
