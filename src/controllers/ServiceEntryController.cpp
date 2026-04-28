@@ -40,8 +40,17 @@ bool ServiceEntryController::validateDate(const string& date) const {
 
   int m = stoi(mm), d = stoi(dd), y = stoi(yyyy);
   if (m < 1 || m > 12) return false;
-  if (d < 1 || d > 31) return false;
   if (y < 1900) return false;
+
+  // Days per month (non-leap year baseline)
+  static const int daysInMonth[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+  int maxDay = daysInMonth[m];
+  // Leap year: divisible by 4, except centuries unless divisible by 400
+  if (m == 2) {
+    bool leap = (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
+    if (leap) maxDay = 29;
+  }
+  if (d < 1 || d > maxDay) return false;
   return true;
 }
 
@@ -59,10 +68,13 @@ ServiceEntryResult ServiceEntryController::lookupServiceCode(const string& code)
     return res;
   }
 
+  ostringstream feeStr;
+  feeStr << fixed << setprecision(2) << found->fee;
+
   res.success = true;
   res.fee = found->fee;
   res.serviceName = found->name;
-  res.message = found->name + " ($" + to_string(found->fee) + ")";
+  res.message = found->name + " ($" + feeStr.str() + ")";
   return res;
 }
 

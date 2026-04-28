@@ -56,6 +56,7 @@ CrudResult OperatorController::updateMember(const string& number,
                                             const string& name,
                                             const string& status) {
   if (!validId_(number)) return {false, "Member number must be 9 digits."};
+  if (name.empty())      return {false, "Name cannot be empty."};
   string s = status;
   for (auto& c : s) c = static_cast<char>(toupper(static_cast<unsigned char>(c)));
   if (s != "VALIDATED" && s != "SUSPENDED")
