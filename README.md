@@ -43,13 +43,6 @@ make clean    # remove build/
 make run      # build + run with data/
 ```
 
-### Option 3 — Manual CMake
-
-```bash
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build
-```
-
 **Output binary:**
 - Windows: `build\Release\strawhats.exe`
 - Linux/macOS: `build/strawhats`
