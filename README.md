@@ -4,6 +4,29 @@ A C++17 console application implementing the ChocAn healthcare provider manageme
 Covers provider login, member validation, service record entry, weekly batch reporting,
 operator CRUD, and provider directory generation. All persistence is CSV-based — no database required.
 
+Startup main.cpp loads all 4 CSV files into memory (members, providers, services, service_records), wires everything together, then drops you at a 3-way terminal selector.
+
+Provider Terminal — the main workflow
+
+Provider enters their 9-digit number + 4-digit PIN → ProviderLoginController checks it against providers.csv
+Once in, they can either:
+Submit a service record — walks through member validation → date → service code → confirm → optional comments → appends a row to service_records.csv
+Request the provider directory — generates a sorted .txt file of all services + fees to data/output/
+Manager Terminal — reporting
+
+Enter a week-ending date, WeeklyBatchGenerator scans service_records.csv for the 7-day window and spits out 5 files: per-provider report, per-member report, weekly summary, accounts payable summary, and an EFT transfer file
+Operator Terminal — data management
+
+Add/update/delete members and providers, changes write back to CSV immediately
+Import an Acme nightly update file to bulk-update member statuses
+Data flow in one line:
+
+CSV files -> loaded into memory at startup → controllers read/write in-memory maps → changes flushed back to CSV on every mutation
+
+Nothing is held in a database. Every repo is just an unordered_map keyed by ID number, backed by a flat CSV file. service_records.csv is the one exception — it's append-only, never rewritten in full.
+
+Testing run_tests.py pipes scripted keyboard input directly to the compiled binary and checks that the exact locked tag strings (like [LOGIN_SUCCESS], [RECORD_SAVED]) appear in stdout. CSVs are snapshotted before each mutating test and restored after, so the 41 tests are fully repeatable
+
 ---
 
 ## Team
