@@ -84,6 +84,7 @@ make run      # build + run with data/
 |------|---------|-------|-----------------------|
 | CMake | [cmake.org](https://cmake.org/download) or VS 2019/2022 | `brew install cmake` | `sudo apt install cmake` |
 | Compiler | Visual Studio 2019/2022 Community | `xcode-select --install` | `sudo apt install build-essential` |
+| Python 3 | [python.org](https://www.python.org/downloads/) | `brew install python3` | `sudo apt install python3` |
 
 ---
 
