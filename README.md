@@ -195,7 +195,7 @@ Output:
 PASS  BB-PV-01      Login — success
 PASS  BB-PV-02      Login — wrong PIN
 ...
-All 43 tests passed.
+All 41 tests passed.
 ```
 
 Exit codes: `0` = all pass, `1` = failures, `2` = binary not found.
