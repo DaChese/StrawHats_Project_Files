@@ -66,7 +66,7 @@ void ManagerTerminalUI::run() {
     string choice = prompt("  Choice: ");
     cout << "\n";
 
-    if (choice == "q" || choice == "Q") break;
+    if (!cin || choice == "q" || choice == "Q") break;
     if (choice != "1") { cout << "  Invalid choice.\n\n"; continue; }
 
     // ── Weekly batch ─────────────────────────────────────────────────────
@@ -76,6 +76,7 @@ void ManagerTerminalUI::run() {
 
     string today   = todayMDY();
     string weekEnd = prompt("  Week ending date (MM-DD-YYYY)  Enter = " + today + " : ");
+    if (!cin) weekEnd = today;
     if (weekEnd.empty()) weekEnd = today;
     cout << "\n";
 

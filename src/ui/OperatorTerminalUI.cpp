@@ -45,7 +45,7 @@ void OperatorTerminalUI::manageMembersMenu() {
 
     string c = prompt("  Choice: ");
     cout << "\n";
-    if (c == "b" || c == "B") return;
+    if (!cin || c == "b" || c == "B") return;
 
     if (c == "1") {
       cout << DIV << "\n  Add Member\n" << DIV << "\n\n";
@@ -92,7 +92,7 @@ void OperatorTerminalUI::manageProvidersMenu() {
 
     string c = prompt("  Choice: ");
     cout << "\n";
-    if (c == "b" || c == "B") return;
+    if (!cin || c == "b" || c == "B") return;
 
     if (c == "1") {
       cout << DIV << "\n  Add Provider\n" << DIV << "\n\n";
@@ -142,7 +142,7 @@ void OperatorTerminalUI::run() {
     string c = prompt("  Choice: ");
     cout << "\n";
 
-    if (c == "q" || c == "Q") break;
+    if (!cin || c == "q" || c == "Q") break;
 
     if (c == "1") {
       manageMembersMenu();
@@ -155,6 +155,7 @@ void OperatorTerminalUI::run() {
            << "  Import Acme Update File\n"
            << DIV << "\n\n";
       string path = prompt("  File path  Enter = " + dataDir_ + "/acme_updates.csv : ");
+      if (!cin) path = dataDir_ + "/acme_updates.csv";
       if (path.empty()) path = dataDir_ + "/acme_updates.csv";
       cout << "\n";
       auto r = ctrl_.importAcmeUpdate(path);

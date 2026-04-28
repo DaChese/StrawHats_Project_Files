@@ -81,7 +81,7 @@ void ProviderTerminalUI::runProviderSession(const Provider& provider) {
     string choice = prompt("  Choice: ");
     cout << "\n";
 
-    if (choice == "q" || choice == "Q") {
+    if (!cin || choice == "q" || choice == "Q") {
       cout << "  [NAV] Logout\n\n";
       return;
     }
@@ -109,8 +109,8 @@ void ProviderTerminalUI::runProviderSession(const Provider& provider) {
     string memberNum = prompt("  Member # (9 digits)  b=back  q=logout : ");
     cout << "\n";
 
-    if (memberNum == "b" || memberNum == "B") { cout << "  [NAV] Back\n\n";   continue; }
-    if (memberNum == "q" || memberNum == "Q") { cout << "  [NAV] Logout\n\n"; return;   }
+    if (!cin || memberNum == "b" || memberNum == "B") { cout << "  [NAV] Back\n\n";   continue; }
+    if (!cin || memberNum == "q" || memberNum == "Q") { cout << "  [NAV] Logout\n\n"; return;   }
 
     auto val = memberCtrl_.validate(memberNum);
 
@@ -136,8 +136,8 @@ void ProviderTerminalUI::runProviderSession(const Provider& provider) {
       dateOfService = prompt("  Date of service (MM-DD-YYYY)  b=back  q=logout : ");
       cout << "\n";
 
-      if (dateOfService == "q" || dateOfService == "Q") { cout << "  [NAV] Logout\n\n"; return;   }
-      if (dateOfService == "b" || dateOfService == "B") { cout << "  [NAV] Back\n\n";   break;    }
+      if (!cin || dateOfService == "q" || dateOfService == "Q") { cout << "  [NAV] Logout\n\n"; return;   }
+      if (!cin || dateOfService == "b" || dateOfService == "B") { cout << "  [NAV] Back\n\n";   break;    }
 
       if (serviceCtrl_.validateDate(dateOfService)) {
         cout << "  [DATE_OK] Date accepted.\n\n";
@@ -158,8 +158,8 @@ void ProviderTerminalUI::runProviderSession(const Provider& provider) {
       serviceCode = prompt("  Service code (6 digits)  b=back  q=logout : ");
       cout << "\n";
 
-      if (serviceCode == "q" || serviceCode == "Q") { cout << "  [NAV] Logout\n\n"; return; }
-      if (serviceCode == "b" || serviceCode == "B") { cout << "  [NAV] Back\n\n";   break;  }
+      if (!cin || serviceCode == "q" || serviceCode == "Q") { cout << "  [NAV] Logout\n\n"; return; }
+      if (!cin || serviceCode == "b" || serviceCode == "B") { cout << "  [NAV] Back\n\n";   break;  }
 
       svcResult = serviceCtrl_.lookupServiceCode(serviceCode);
       if (svcResult.success) {
@@ -219,7 +219,7 @@ void ProviderTerminalUI::run() {
 
   while (true) {
     string providerNum = prompt("  Provider # (9 digits)  q=quit : ");
-    if (providerNum == "q" || providerNum == "Q") break;
+    if (!cin || providerNum == "q" || providerNum == "Q") break;
 
     string pin = prompt("  PIN (4 digits)               : ");
     cout << "\n";

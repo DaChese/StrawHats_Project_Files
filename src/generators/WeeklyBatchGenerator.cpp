@@ -23,6 +23,7 @@
 #include <fstream>
 #include <iomanip>
 #include <map>
+#include <cstring>
 #include <sstream>
 using namespace std;
 namespace fs = filesystem;

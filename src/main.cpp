@@ -90,8 +90,7 @@ int main(int argc, char** argv) {
     cout << "\nSelect terminal: ";
     string choice;
     getline(cin, choice);
-
-    if (choice == "q" || choice == "Q") break;
+    if (!cin || choice == "q" || choice == "Q") break;
 
     if (choice == "1") {
       ProviderTerminalUI ui(loginCtrl, memberCtrl, serviceCtrl, dirGen, outputDir);

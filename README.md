@@ -104,12 +104,16 @@ PIN (4 digits): 1234
 
   Member # (9 digits, 'b' back): 111111111
   [MEMBER_OK] Member is validated.
+
   Date of service (MM-DD-YYYY, 'b' retry member): 04-21-2026
   [DATE_OK] Date accepted.
+
   Service code (6 digits, 'b' retry date): 100001
   [CODE_OK] Service confirmed.
+
   [SERVICE_FOUND] Dietitian Consultation — fee: $50.00
   Confirm service? (y/n): y
+
   Comments (press Enter to skip, max 100 chars): Annual checkup
   [RECORD_SAVED] Service record saved successfully.
 ```
@@ -124,7 +128,9 @@ Triggers the weekly batch run. Generates all 5 report files for a 7-day window.
   [1] Run Weekly Batch (UC04)
   [q] Quit
   Choice: 1
+
   Week ending date (MM-DD-YYYY, Enter = today): 04-21-2026
+
   [BATCH_OK] Reports generated in: data/output/reports/week_20260421
 ```
 
@@ -158,21 +164,32 @@ Unknown member numbers are skipped — the import never crashes.
 
 ## Running the Tests
 
-Build the binary first, then:
+Build the binary first, then run the automated test suite:
 
+### Basic Usage (Recommended)
 ```bash
 python tests/run_tests.py
 ```
+- Uses default paths:
+  - Binary: Auto-detected (`build/strawhats` on Linux/macOS, `build\Release\strawhats.exe` on Windows)
+  - Data directory: `data`
+- Ideal for standard setups and quick testing.
 
-Optional flags:
+### Advanced Usage (Optional Flags)
 ```bash
-python tests/run_tests.py --binary build/Release/strawhats.exe --data-dir data
+python tests/run_tests.py --binary <path/to/binary> --data-dir <path/to/data>
 ```
+- `--binary <path>`: Specify a custom binary path (e.g., for debug builds or non-standard locations).
+  - Example (Windows): `--binary build/Release/strawhats.exe`
+  - Example (Linux/macOS): `--binary build/strawhats`
+- `--data-dir <path>`: Specify a custom data directory (e.g., for testing with different CSV files).
+  - Default: `data`
+- Use when: Testing custom builds, debug versions, or alternative data sets.
 
-The runner covers **43 test cases**:
+The runner covers 41 test cases:
 - BB-PV-01 → BB-PV-24 — all provider/validation black-box cases
 - UC05-01 — provider directory generation
-- UC04-01, UC04-02 — weekly batch (valid + invalid date)
+- UC04-01, UC04-02 — weekly batch (valid and invalid date)
 - OP-MEM-01 → OP-MEM-07 — member CRUD
 - OP-PRV-01 → OP-PRV-05 — provider CRUD
 - OP-ACM-01, OP-ACM-02 — Acme import
