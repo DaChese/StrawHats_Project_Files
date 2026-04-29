@@ -45,7 +45,7 @@ bool ServiceEntryController::validateDate(const string& date) const {
   // Days per month (non-leap year baseline)
   static const int daysInMonth[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
   int maxDay = daysInMonth[m];
-  // Leap year: divisible by 4, except centuries unless divisible by 400
+  // Leap year: divisible by 4
   if (m == 2) {
     bool leap = (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
     if (leap) maxDay = 29;
