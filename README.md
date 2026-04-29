@@ -10,7 +10,7 @@ Startup main.cpp loads all 4 CSV files into memory (members, providers, services
 
 Provider enters their 9-digit number + 4-digit PIN → ProviderLoginController checks it against providers.csv
 Once in, they can either:
-Submit a service record — walks through member validation → date → service code → confirm → optional comments → appends a row to service_records.csv
+Submit a service record — walks through member validation -> date -> service code -> confirm -> optional comments -> then appends a row to service_records.csv
 Request the provider directory — generates a sorted .txt file of all services + fees to data/output/
 
 
@@ -94,7 +94,7 @@ make run      # build + run with data/
 # Windows
 build\Release\strawhats.exe --data-dir data
 
-# Linux / macOS
+# Linux / macOS (macOS eww)
 ./build/strawhats --data-dir data
 ```
 
@@ -212,11 +212,11 @@ python tests/run_tests.py --binary <path/to/binary> --data-dir <path/to/data>
 - Use when: Testing custom builds, debug versions, or alternative data sets.
 
 The runner covers 41 test cases:
-- BB-PV-01 → BB-PV-24 — all provider/validation black-box cases
+- BB-PV-01 -> BB-PV-24 — all provider/validation black-box cases
 - UC05-01 — provider directory generation
 - UC04-01, UC04-02 — weekly batch (valid and invalid date)
-- OP-MEM-01 → OP-MEM-07 — member CRUD
-- OP-PRV-01 → OP-PRV-05 — provider CRUD
+- OP-MEM-01 -> OP-MEM-07 — member CRUD
+- OP-PRV-01 -> OP-PRV-05 — provider CRUD
 - OP-ACM-01, OP-ACM-02 — Acme import
 
 Each test pipes scripted stdin to the binary and checks stdout for the exact locked tag string.
