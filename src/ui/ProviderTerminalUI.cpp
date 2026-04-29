@@ -103,7 +103,7 @@ void ProviderTerminalUI::runProviderSession(const Provider& provider) {
 
     // ── Step 1: Member # ─────────────────────────────────────────────────
     cout << DIV << "\n"
-         << "  Step 1 of 4 — Member Validation\n"
+         << "  Step 1 of 4 - Member Validation\n"
          << DIV << "\n\n";
 
     string memberNum = prompt("  Member # (9 digits)  b=back  q=logout : ");
@@ -128,7 +128,7 @@ void ProviderTerminalUI::runProviderSession(const Provider& provider) {
 
     // ── Step 2: Date of service ──────────────────────────────────────────
     cout << DIV << "\n"
-         << "  Step 2 of 4 — Date of Service\n"
+         << "  Step 2 of 4 - Date of Service\n"
          << DIV << "\n\n";
 
     string dateOfService;
@@ -149,7 +149,7 @@ void ProviderTerminalUI::runProviderSession(const Provider& provider) {
 
     // ── Step 3: Service code ─────────────────────────────────────────────
     cout << DIV << "\n"
-         << "  Step 3 of 4 — Service Code\n"
+         << "  Step 3 of 4 - Service Code\n"
          << DIV << "\n\n";
 
     ServiceEntryResult svcResult;
@@ -172,7 +172,7 @@ void ProviderTerminalUI::runProviderSession(const Provider& provider) {
 
     // ── Step 4: Confirm + comments ───────────────────────────────────────
     cout << DIV << "\n"
-         << "  Step 4 of 4 — Confirm Service\n"
+         << "  Step 4 of 4 - Confirm Service\n"
          << DIV << "\n\n"
          << "  Service  : " << svcResult.serviceName << "\n"
          << "  Fee      : $" << fixed << setprecision(2) << svcResult.fee << "\n"
