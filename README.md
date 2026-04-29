@@ -198,7 +198,6 @@ python tests/run_tests.py
 - Uses default paths:
   - Binary: Auto-detected (`build/strawhats` on Linux/macOS, `build\Release\strawhats.exe` on Windows)
   - Data directory: `data`
-- Ideal for standard setups and quick testing.
 
 ### Advanced Usage (Optional Flags)
 ```bash
@@ -209,7 +208,7 @@ python tests/run_tests.py --binary <path/to/binary> --data-dir <path/to/data>
   - Example (Linux/macOS): `--binary build/strawhats`
 - `--data-dir <path>`: Specify a custom data directory (e.g., for testing with different CSV files).
   - Default: `data`
-- Use when: Testing custom builds, debug versions, or alternative data sets.
+- Use when: using alternative data sets.
 
 The runner covers 41 test cases:
 - BB-PV-01 -> BB-PV-24 — all provider/validation black-box cases
