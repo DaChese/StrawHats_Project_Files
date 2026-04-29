@@ -56,7 +56,7 @@ Prerequisites: CMake 3.16+, a C++17 compiler
 
 **Windows:**
 ```bat
-build.bat
+./build.bat
 ```
 
 **Linux / macOS:**
