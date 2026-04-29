@@ -208,7 +208,7 @@ python tests/run_tests.py --binary <path/to/binary> --data-dir <path/to/data>
   - Example (Windows): `--binary build/Release/strawhats.exe`
   - Example (Linux/macOS): `--binary build/strawhats`
 - `--data-dir <path>`: Specify a custom data directory (e.g., for testing with different CSV files).
-  - Default: `data`
+  - Default entry: `data/..`
 - Use when: using alternative data sets.
 
 The runner covers 41 test cases:
