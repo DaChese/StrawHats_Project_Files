@@ -129,7 +129,7 @@ void OperatorTerminalUI::manageProvidersMenu() {
 
 void OperatorTerminalUI::run() {
   cout << "\n" << DIV2 << "\n"
-       << "   Straw Hats ChocAn — Operator Terminal\n"
+       << "   Straw Hats ChocAn - Operator Terminal\n"
        << DIV2 << "\n\n";
 
   while (true) {

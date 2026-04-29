@@ -202,6 +202,7 @@ python tests/run_tests.py
 ### Advanced Usage (Optional Flags)
 ```bash
 python tests/run_tests.py --binary <path/to/binary> --data-dir <path/to/data>
+ ex: python tests/run_tests.py --data-dir data/test_alt
 ```
 - `--binary <path>`: Specify a custom binary path (e.g., for debug builds or non-standard locations).
   - Example (Windows): `--binary build/Release/strawhats.exe`

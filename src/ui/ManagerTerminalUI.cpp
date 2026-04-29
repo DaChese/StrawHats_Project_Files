@@ -55,7 +55,7 @@ static string todayMDY() {
 
 void ManagerTerminalUI::run() {
   cout << "\n" << DIV2 << "\n"
-       << "   Straw Hats ChocAn — Manager Terminal\n"
+       << "   Straw Hats ChocAn - Manager Terminal\n"
        << DIV2 << "\n\n";
 
   while (true) {

@@ -214,7 +214,7 @@ void ProviderTerminalUI::runProviderSession(const Provider& provider) {
 
 void ProviderTerminalUI::run() {
   cout << "\n" << DIV2 << "\n"
-       << "   Straw Hats ChocAn — Provider Terminal\n"
+       << "   Straw Hats ChocAn - Provider Terminal\n"
        << DIV2 << "\n\n";
 
   while (true) {
