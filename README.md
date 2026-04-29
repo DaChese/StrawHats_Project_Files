@@ -50,7 +50,7 @@ run_tests.py pipes scripted keyboard input directly to the compiled binary and c
 
 ## How to Build
 
-### Option 1 — Build script (recommended)
+### Option 1 — Build script (recommended PLEASE)
 
 Prerequisites: CMake 3.16+, a C++17 compiler
 
